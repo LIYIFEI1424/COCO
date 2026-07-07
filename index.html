@@ -12,14 +12,15 @@
         }
 
         :root {
-            --bg: #0d0d10;
-            --bg-soft: #141418;
-            --surface: #1a1a20;
-            --text: #f0ede5;
-            --text-muted: #9a9891;
-            --accent: #c9a86c;
-            --accent-dark: #a68855;
-            --border: rgba(255, 255, 255, 0.08);
+            --bg: #f5f0e8;
+            --bg-soft: #ece6db;
+            --surface: #ffffff;
+            --text: #1a1a1a;
+            --text-muted: #6b6560;
+            --text-light: #9a9590;
+            --accent: #8b7355;
+            --accent-dark: #6b5a45;
+            --border: rgba(0, 0, 0, 0.08);
         }
 
         html {
@@ -27,29 +28,30 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, Inter, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Noto Sans SC", Inter, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
             background: var(--bg);
             color: var(--text);
-            line-height: 1.7;
+            line-height: 1.8;
             -webkit-font-smoothing: antialiased;
         }
 
+        /* 导航栏 */
         nav {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             z-index: 100;
-            background: rgba(13, 13, 16, 0.75);
-            backdrop-filter: blur(16px);
+            background: rgba(245, 240, 232, 0.92);
+            backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border);
         }
 
         .nav-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 32px;
-            height: 72px;
+            padding: 0 40px;
+            height: 64px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -58,11 +60,11 @@
         .nav-left {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
 
         .logo {
-            font-size: 22px;
+            font-size: 20px;
             font-weight: 700;
             color: var(--text);
             text-decoration: none;
@@ -77,12 +79,12 @@
             font-size: 12px;
             color: var(--text-muted);
             border-left: 1px solid var(--border);
-            padding-left: 10px;
+            padding-left: 12px;
         }
 
         .nav-links {
             display: flex;
-            gap: 36px;
+            gap: 32px;
             list-style: none;
         }
 
@@ -113,8 +115,8 @@
         }
 
         .btn-outline {
-            padding: 9px 20px;
-            border: 1px solid var(--border);
+            padding: 8px 20px;
+            border: 1px solid var(--text);
             border-radius: 24px;
             color: var(--text);
             background: transparent;
@@ -128,17 +130,16 @@
         }
 
         .btn-outline:hover {
-            border-color: var(--accent);
-            color: var(--accent);
+            background: var(--text);
+            color: var(--bg);
         }
 
+        /* Hero 区域 */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
-            padding: 120px 32px 80px;
-            background: radial-gradient(ellipse at 80% 20%, rgba(201, 168, 108, 0.08) 0%, transparent 40%),
-                        radial-gradient(ellipse at 20% 80%, rgba(255, 255, 255, 0.03) 0%, transparent 40%);
+            padding: 120px 40px 80px;
         }
 
         .hero-container {
@@ -146,143 +147,95 @@
             margin: 0 auto;
             width: 100%;
             display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
-            gap: 60px;
-            align-items: center;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
         }
 
         .hero-left {
-            max-width: 620px;
+            padding-top: 20px;
         }
 
-        .hero-name {
-            font-size: clamp(72px, 10vw, 140px);
-            font-weight: 800;
-            line-height: 1;
-            letter-spacing: -2px;
-            margin-bottom: 28px;
-            color: var(--text);
+        .hero-breadcrumb {
+            font-size: 12px;
+            color: var(--text-light);
+            margin-bottom: 24px;
+            letter-spacing: 1px;
         }
 
-        .hero-tags {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 28px;
-            flex-wrap: wrap;
+        .hero-breadcrumb span {
+            margin: 0 8px;
         }
 
-        .tag {
-            padding: 6px 16px;
-            border-radius: 4px;
-            font-size: 13px;
-            font-weight: 500;
-            background: var(--surface);
-            border: 1px solid var(--border);
-            color: var(--text);
-        }
-
-        .tag-accent {
-            background: var(--accent);
-            color: var(--bg);
-            border-color: var(--accent);
-        }
-
-        .hero-headline {
-            font-size: clamp(28px, 4vw, 44px);
+        .hero-title {
+            font-size: clamp(42px, 5.5vw, 72px);
             font-weight: 700;
-            line-height: 1.3;
-            margin-bottom: 18px;
+            line-height: 1.15;
+            letter-spacing: -1px;
+            margin-bottom: 20px;
+            color: var(--text);
         }
 
-        .hero-headline .highlight {
-            background: var(--accent);
-            color: var(--bg);
-            padding: 0 10px;
-            border-radius: 4px;
+        .hero-title .accent-line {
+            color: var(--accent);
+            font-style: italic;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(24px, 3vw, 36px);
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: 24px;
+            color: var(--text);
         }
 
         .hero-desc {
             font-size: 16px;
             color: var(--text-muted);
-            max-width: 520px;
+            line-height: 1.9;
+            max-width: 480px;
             margin-bottom: 40px;
         }
 
-        .experience-list {
-            border-top: 1px solid var(--border);
+        .hero-quote {
+            border-left: 2px solid var(--accent);
+            padding-left: 24px;
+            margin-top: 48px;
         }
 
-        .exp-item {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 18px 0;
-            border-bottom: 1px solid var(--border);
-            cursor: pointer;
-            transition: all 0.25s;
-        }
-
-        .exp-item:hover {
-            padding-left: 10px;
-        }
-
-        .exp-item:hover .exp-title {
-            color: var(--accent);
-        }
-
-        .exp-left {
-            display: flex;
-            align-items: center;
-            gap: 18px;
-        }
-
-        .exp-num {
-            font-size: 12px;
-            color: var(--text-muted);
-            font-family: Courier New, monospace;
-            min-width: 28px;
-        }
-
-        .exp-title {
-            font-size: 15px;
+        .hero-quote-text {
+            font-size: clamp(20px, 2.5vw, 28px);
+            font-weight: 600;
+            line-height: 1.5;
             color: var(--text);
-            transition: color 0.25s;
+            margin-bottom: 8px;
         }
 
-        .exp-arrow {
-            color: var(--text-muted);
+        .hero-quote-source {
             font-size: 14px;
-            transition: transform 0.25s;
-        }
-
-        .exp-item:hover .exp-arrow {
-            transform: translateX(4px);
-            color: var(--accent);
+            color: var(--text-light);
         }
 
         .hero-right {
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start;
             position: relative;
         }
 
         .hero-image-wrapper {
             position: relative;
             width: 100%;
-            max-width: 420px;
-            border-radius: 24px;
+            max-width: 440px;
+            border-radius: 8px;
             overflow: hidden;
+            background: var(--bg-soft);
         }
 
-        /* 裁切照片：只显示白衬衫及以上部分，下方裁掉 */
         .hero-image {
             width: 100%;
             height: auto;
             display: block;
-            border-radius: 24px;
-            /* 向上偏移让底部多余部分被裁掉 */
-            margin-bottom: -35%;
             transition: transform 0.4s ease;
         }
 
@@ -290,27 +243,19 @@
             transform: scale(1.02);
         }
 
-        /* 周围环境光晕 - 放在图片后面 */
-        .hero-glow-ring {
-            position: absolute;
-            top: 5%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100%;
-            height: 90%;
-            border-radius: 30px;
-            background: radial-gradient(ellipse at center,
-                rgba(201, 168, 108, 0.04) 0%,
-                rgba(255, 240, 200, 0.02) 30%,
-                transparent 70%
-            );
-            filter: blur(24px);
-            pointer-events: none;
-            z-index: 0;
+        .hero-image-caption {
+            margin-top: 16px;
+            font-size: 11px;
+            color: var(--text-light);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            display: flex;
+            justify-content: space-between;
         }
 
+        /* 通用区块 */
         section {
-            padding: 100px 32px;
+            padding: 100px 40px;
         }
 
         .section-container {
@@ -327,25 +272,28 @@
         }
 
         .section-title {
-            font-size: clamp(28px, 4vw, 42px);
+            font-size: clamp(32px, 4vw, 48px);
             font-weight: 700;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
+            line-height: 1.2;
         }
 
         .section-desc {
             font-size: 16px;
             color: var(--text-muted);
             max-width: 640px;
+            line-height: 1.8;
         }
 
+        /* 关于区域 */
         .about {
             background: var(--bg-soft);
         }
 
         .about-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 80px;
             align-items: start;
         }
 
@@ -353,36 +301,51 @@
             color: var(--text-muted);
             margin-bottom: 20px;
             font-size: 15px;
+            line-height: 1.9;
         }
 
+        .about-text .highlight {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* 数据统计 */
         .stats {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 24px;
-            margin-top: 40px;
+            gap: 40px;
+            margin-top: 60px;
+            padding-top: 60px;
+            border-top: 1px solid var(--border);
         }
 
         .stat-item {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 24px;
-            text-align: center;
+            text-align: left;
         }
 
         .stat-number {
-            font-size: 32px;
+            font-size: clamp(36px, 4vw, 52px);
             font-weight: 700;
-            color: var(--accent);
+            color: var(--text);
             display: block;
+            line-height: 1;
+            margin-bottom: 8px;
+            font-style: italic;
+        }
+
+        .stat-unit {
+            font-size: 16px;
+            color: var(--accent);
+            font-style: normal;
+            font-weight: 500;
         }
 
         .stat-label {
-            font-size: 13px;
+            font-size: 14px;
             color: var(--text-muted);
-            margin-top: 6px;
         }
 
+        /* 服务区域 */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -393,39 +356,42 @@
         .service-card {
             background: var(--surface);
             border: 1px solid var(--border);
-            border-radius: 16px;
+            border-radius: 12px;
             padding: 32px;
-            transition: transform 0.25s, border-color 0.25s;
+            transition: transform 0.25s, box-shadow 0.25s;
         }
 
         .service-card:hover {
-            transform: translateY(-6px);
-            border-color: var(--accent);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.06);
         }
 
         .service-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
-            background: rgba(201, 168, 108, 0.12);
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            background: var(--bg-soft);
             color: var(--accent);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 20px;
-            margin-bottom: 20px;
+            font-size: 16px;
+            margin-bottom: 16px;
         }
 
         .service-card h3 {
             font-size: 18px;
+            font-weight: 600;
             margin-bottom: 10px;
         }
 
         .service-card p {
             font-size: 14px;
             color: var(--text-muted);
+            line-height: 1.7;
         }
 
+        /* 作品区域 */
         .works {
             background: var(--bg-soft);
         }
@@ -440,7 +406,7 @@
         .work-card {
             background: var(--surface);
             border: 1px solid var(--border);
-            border-radius: 16px;
+            border-radius: 12px;
             overflow: hidden;
             transition: transform 0.25s;
         }
@@ -450,8 +416,8 @@
         }
 
         .work-cover {
-            height: 200px;
-            background: linear-gradient(135deg, #1a1a20 0%, #2a2a35 100%);
+            height: 180px;
+            background: linear-gradient(135deg, #e8e2d8 0%, #d5cfc5 100%);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -465,25 +431,28 @@
 
         .work-info h3 {
             font-size: 18px;
+            font-weight: 600;
             margin-bottom: 8px;
         }
 
         .work-info p {
             font-size: 14px;
             color: var(--text-muted);
+            line-height: 1.7;
         }
 
+        /* 联系区域 */
         .contact-grid {
             display: grid;
             grid-template-columns: 1fr 1.2fr;
-            gap: 60px;
-            align-items: center;
+            gap: 80px;
+            align-items: start;
         }
 
         .contact-links {
             display: flex;
             flex-direction: column;
-            gap: 18px;
+            gap: 16px;
             margin-top: 32px;
         }
 
@@ -502,21 +471,20 @@
         }
 
         .contact-link .icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 10px;
-            background: var(--surface);
-            border: 1px solid var(--border);
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            background: var(--bg-soft);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 16px;
+            font-size: 14px;
         }
 
         .contact-form {
             background: var(--surface);
             border: 1px solid var(--border);
-            border-radius: 16px;
+            border-radius: 12px;
             padding: 32px;
         }
 
@@ -536,7 +504,7 @@
             width: 100%;
             background: var(--bg);
             border: 1px solid var(--border);
-            border-radius: 10px;
+            border-radius: 8px;
             padding: 12px 16px;
             color: var(--text);
             font-size: 14px;
@@ -555,10 +523,10 @@
         }
 
         .btn-primary {
-            background: var(--accent);
+            background: var(--text);
             color: var(--bg);
             border: none;
-            border-radius: 10px;
+            border-radius: 8px;
             padding: 14px 28px;
             font-size: 14px;
             font-weight: 600;
@@ -570,11 +538,12 @@
             background: var(--accent-dark);
         }
 
+        /* 页脚 */
         footer {
             border-top: 1px solid var(--border);
-            padding: 40px 32px;
+            padding: 40px;
             text-align: center;
-            color: var(--text-muted);
+            color: var(--text-light);
             font-size: 13px;
         }
 
@@ -592,6 +561,76 @@
             cursor: pointer;
         }
 
+        /* 工作经历列表 */
+        .experience-list {
+            margin-top: 40px;
+            border-top: 1px solid var(--border);
+        }
+
+        .exp-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border);
+            cursor: pointer;
+            transition: all 0.25s;
+        }
+
+        .exp-item:hover {
+            padding-left: 8px;
+        }
+
+        .exp-item:hover .exp-title {
+            color: var(--accent);
+        }
+
+        .exp-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .exp-num {
+            font-size: 12px;
+            color: var(--text-light);
+            font-family: "Courier New", monospace;
+            min-width: 28px;
+        }
+
+        .exp-title {
+            font-size: 15px;
+            color: var(--text-muted);
+            transition: color 0.25s;
+        }
+
+        .exp-arrow {
+            color: var(--text-light);
+            font-size: 14px;
+            transition: transform 0.25s;
+        }
+
+        .exp-item:hover .exp-arrow {
+            transform: translateX(4px);
+            color: var(--accent);
+        }
+
+        /* 工作信条 */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 40px;
+            padding-top: 40px;
+            border-top: 1px solid var(--border);
+        }
+
+        .value-item {
+            font-size: 15px;
+            color: var(--text-muted);
+        }
+
+        /* 响应式 */
         @media (max-width: 900px) {
             .nav-links {
                 display: none;
@@ -603,35 +642,22 @@
 
             .hero-container {
                 grid-template-columns: 1fr;
-                text-align: center;
+                gap: 40px;
             }
 
             .hero-left {
                 max-width: 100%;
             }
 
-            .hero-tags {
-                justify-content: center;
-            }
-
-            .hero-desc {
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            .experience-list {
-                text-align: left;
-                max-width: 500px;
-                margin: 0 auto;
-            }
-
-            .hero-image {
+            .hero-image-wrapper {
                 max-width: 360px;
+                margin: 0 auto;
             }
 
             .about-grid,
             .contact-grid {
                 grid-template-columns: 1fr;
+                gap: 40px;
             }
 
             .services-grid,
@@ -641,6 +667,19 @@
 
             .stats {
                 grid-template-columns: repeat(2, 1fr);
+                gap: 24px;
+            }
+
+            .values-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            section {
+                padding: 60px 24px;
+            }
+
+            .hero {
+                padding: 100px 24px 60px;
             }
         }
     </style>
@@ -671,19 +710,14 @@
     <section class="hero">
         <div class="hero-container">
             <div class="hero-left">
-                <h1 class="hero-name">何艳梅</h1>
-                <div class="hero-tags">
-                    <span class="tag">COCO</span>
-                    <span class="tag tag-accent">追光人</span>
-                    <span class="tag">1997 起 · 29年</span>
-                    <span class="tag">深圳</span>
-                    <span class="tag">高级照明设计师</span>
+                <div class="hero-breadcrumb">
+                    29 年 <span>·</span> 追光人
                 </div>
-                <h2 class="hero-headline">
-                    中国LED照明<br><span class="highlight">品牌运营操盘手</span>
-                </h2>
+                <h1 class="hero-title">
+                    29年，<br>我做对了一件事：<br><span class="accent-line">扎根照明、搭建团队</span>
+                </h1>
                 <p class="hero-desc">
-                    29年职场深耕，21年专注照明领域，从家电渠道到世界500强，从自主创业到品牌总监，始终扎根一个行业，搭建团队、分享利润。
+                    1997年从海尔集团起步，历经科龙电器、深汕电器，2011年进入世界500强PHILIPS，2013年自主创业，2024年任BOKE驱动品牌总监。始终扎根一个行业，搭建团队、分享利润。
                 </p>
                 <div class="experience-list">
                     <div class="exp-item">
@@ -729,11 +763,18 @@
                         <span class="exp-arrow">↗</span>
                     </div>
                 </div>
+                <div class="hero-quote">
+                    <p class="hero-quote-text">如果要给这29年一句注解</p>
+                    <p class="hero-quote-source">让照明改变生活</p>
+                </div>
             </div>
             <div class="hero-right">
-                <div class="hero-glow-ring"></div>
                 <div class="hero-image-wrapper">
                     <img src="images/coco个人网站图片.jpg" alt="COCO" class="hero-image">
+                    <div class="hero-image-caption">
+                        <span>HE YANMEI · SHENZHEN</span>
+                        <span>N° 01 · PORTRAIT</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -744,39 +785,48 @@
             <div class="about-grid">
                 <div>
                     <p class="section-label">About</p>
-                    <h2 class="section-title">关于 COCO</h2>
+                    <h2 class="section-title">让照明改变生活</h2>
+                    <p class="section-desc">这不是一句slogan，是这一代照明人共同的命题。</p>
+                    <div class="values-grid">
+                        <div class="value-item">全情投入</div>
+                        <div class="value-item">热爱行业</div>
+                        <div class="value-item">诚信热情</div>
+                        <div class="value-item">谦逊包容</div>
+                        <div class="value-item">专业专注</div>
+                        <div class="value-item">务实利他</div>
+                    </div>
                 </div>
                 <div class="about-text">
                     <p>
                         何艳梅（COCO），1976年生，国际贸易专业本科学历，高级照明设计师。1997年从海尔集团起步，历经科龙电器、深汕电器，积累了丰富的家电行业渠道与销售管理经验。
                     </p>
                     <p>
-                        2011年进入世界500强龙头企业"PHILIPS" OEM事业部，任美标销售经理，主攻珠三角商照类出口灯具厂，主推欧标、美标LED模组与驱动产品。2012年，她做到单客户单品突破<span style="color:var(--accent);font-weight:600;">1000万</span>年销售额的个人业绩，实现LED出口创汇目标。
+                        2011年进入世界500强龙头企业"PHILIPS" OEM事业部，任美标销售经理，主攻珠三角商照类出口灯具厂，主推欧标、美标LED模组与驱动产品。2012年，她做到单客户单品突破<span class="highlight">1000万</span>年销售额的个人业绩，实现LED出口创汇目标。
                     </p>
                     <p>
-                        2013年10月自主创业，成为PHILIPS照明OEM渠道南中国区代理商，主营LED驱动与COB产品。团队从一个人发展到30多人，拥有自己的门店、仓储和销售团队，90%客户为灯具工厂，业绩从首年<span style="color:var(--accent);font-weight:600;">600万</span>增长至最高<span style="color:var(--accent);font-weight:600;">1个亿</span>。
+                        2013年10月自主创业，成为PHILIPS照明OEM渠道南中国区代理商，主营LED驱动与COB产品。团队从一个人发展到30多人，拥有自己的门店、仓储和销售团队，90%客户为灯具工厂，业绩从首年<span class="highlight">600万</span>增长至最高<span class="highlight">1个亿</span>。
                     </p>
                     <p>
                         2024年11月起任BOKE驱动品牌品牌总监，将市场部从策展功能升级为销售攻坚部门，联合行业协会、学会及专业文化传媒公司，推动品牌升级与行业影响力建设。
                     </p>
-                    <div class="stats">
-                        <div class="stat-item">
-                            <span class="stat-number">29</span>
-                            <span class="stat-label">年职场深耕</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">21</span>
-                            <span class="stat-label">年照明行业</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">1000万</span>
-                            <span class="stat-label">单品年销售纪录</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">1亿</span>
-                            <span class="stat-label">最高年营业额</span>
-                        </div>
-                    </div>
+                </div>
+            </div>
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-number">29<span class="stat-unit">年</span></span>
+                    <span class="stat-label">职场深耕</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">21<span class="stat-unit">年</span></span>
+                    <span class="stat-label">照明行业</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">1000<span class="stat-unit">万</span></span>
+                    <span class="stat-label">单品年销售纪录</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">1<span class="stat-unit">亿</span></span>
+                    <span class="stat-label">最高年营业额</span>
                 </div>
             </div>
         </div>
@@ -829,42 +879,42 @@
             <p class="section-desc">29年职场路上的每一步，都为今天积蓄力量。</p>
             <div class="works-grid">
                 <div class="work-card">
-                    <div class="work-cover" style="background:linear-gradient(135deg, #1a1a20 0%, #2a2a35 100%);display:flex;align-items:center;justify-content:center;font-size:48px;">🏠</div>
+                    <div class="work-cover">🏠</div>
                     <div class="work-info">
                         <h3>海尔集团 · 武汉区域经理</h3>
                         <p>1997-2001年，负责海尔全系家电产品在武汉三镇及周边市场的拓展营销，涵盖广告策划、财务回款分析、物流储运、团队培养与卖场客情维护。</p>
                     </div>
                 </div>
                 <div class="work-card">
-                    <div class="work-cover" style="background:linear-gradient(135deg, #1a1a20 0%, #2a2a35 100%);display:flex;align-items:center;justify-content:center;font-size:48px;">🛠</div>
+                    <div class="work-cover">🛠</div>
                     <div class="work-info">
                         <h3>科龙电器 · 客服中心副主任</h3>
                         <p>2001-2005年，管理湖北省客服中心全面工作，统筹资产管理、配件发放、费用控制、网点服务审核及用户满意度管理。</p>
                     </div>
                 </div>
                 <div class="work-card">
-                    <div class="work-cover" style="background:linear-gradient(135deg, #1a1a20 0%, #2a2a35 100%);display:flex;align-items:center;justify-content:center;font-size:48px;">💡</div>
+                    <div class="work-cover">💡</div>
                     <div class="work-info">
                         <h3>PHILIPS OEM 千万单品纪录</h3>
                         <p>2012年，单客户单品突破1000万年销售额，从传统陶瓷金卤灯到LED照明新纪元，扶持头部企业实现出口创汇。</p>
                     </div>
                 </div>
                 <div class="work-card">
-                    <div class="work-cover" style="background:linear-gradient(135deg, #1a1a20 0%, #2a2a35 100%);display:flex;align-items:center;justify-content:center;font-size:48px;">🚀</div>
+                    <div class="work-cover">🚀</div>
                     <div class="work-info">
                         <h3>创业：从600万到1个亿</h3>
                         <p>2013-2024年，PHILIPS南中国区OEM代理，团队从1人到30+人，拥有门店仓储及完整销售体系，90%客户为灯具工厂。</p>
                     </div>
                 </div>
                 <div class="work-card">
-                    <div class="work-cover" style="background:linear-gradient(135deg, #1a1a20 0%, #2a2a35 100%);display:flex;align-items:center;justify-content:center;font-size:48px;">🏗</div>
+                    <div class="work-cover">🏗</div>
                     <div class="work-info">
                         <h3>BOKE驱动 · 品牌升级</h3>
                         <p>2024年至今，任BOKE驱动品牌总监，将市场部从策展升级为销售攻坚部门，联合行业协会打造品牌标签效应。</p>
                     </div>
                 </div>
                 <div class="work-card">
-                    <div class="work-cover" style="background:linear-gradient(135deg, #1a1a20 0%, #2a2a35 100%);display:flex;align-items:center;justify-content:center;font-size:48px;">🏪</div>
+                    <div class="work-cover">🏪</div>
                     <div class="work-info">
                         <h3>深汕电器 · 渠道总监</h3>
                         <p>2005-2011年，负责代理品牌进驻大卖场及传统渠道商超的合作谈判，销售团队建设，年季度营销方案拟定与执行。</p>
