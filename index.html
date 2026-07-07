@@ -23,6 +23,19 @@
             --border: rgba(0, 0, 0, 0.08);
         }
 
+        /* 深色模式变量 */
+        .dark-section {
+            --bg: #0d0d10;
+            --bg-soft: #141418;
+            --surface: #1a1a20;
+            --text: #f0ede5;
+            --text-muted: #9a9891;
+            --text-light: #6b6860;
+            --accent: #c9a86c;
+            --accent-dark: #a68855;
+            --border: rgba(255, 255, 255, 0.08);
+        }
+
         html {
             scroll-behavior: smooth;
         }
@@ -35,16 +48,97 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* 导航栏 */
+        .dark-section {
+            background: #0d0d10;
+            color: #f0ede5;
+        }
+
+        .dark-section .section-label {
+            color: #c9a86c;
+        }
+
+        .dark-section .section-title {
+            color: #f0ede5;
+        }
+
+        .dark-section .section-desc {
+            color: #9a9891;
+        }
+
+        .dark-section .service-card,
+        .dark-section .work-card,
+        .dark-section .contact-form {
+            background: #1a1a20;
+            border-color: rgba(255, 255, 255, 0.08);
+        }
+
+        .dark-section .service-card h3,
+        .dark-section .work-info h3 {
+            color: #f0ede5;
+        }
+
+        .dark-section .service-card p,
+        .dark-section .work-info p {
+            color: #9a9891;
+        }
+
+        .dark-section .service-icon {
+            background: rgba(201, 168, 108, 0.12);
+            color: #c9a86c;
+        }
+
+        .dark-section .work-cover {
+            background: linear-gradient(135deg, #1a1a20 0%, #2a2a35 100%);
+        }
+
+        .dark-section .contact-link {
+            color: #9a9891;
+        }
+
+        .dark-section .contact-link:hover {
+            color: #c9a86c;
+        }
+
+        .dark-section .contact-link .icon {
+            background: #1a1a20;
+        }
+
+        .dark-section .form-group label {
+            color: #9a9891;
+        }
+
+        .dark-section .form-group input,
+        .dark-section .form-group textarea {
+            background: #141418;
+            border-color: rgba(255, 255, 255, 0.08);
+            color: #f0ede5;
+        }
+
+        .dark-section .btn-primary {
+            background: #c9a86c;
+            color: #0d0d10;
+        }
+
+        .dark-section .btn-primary:hover {
+            background: #a68855;
+        }
+
+        .dark-section footer {
+            background: #0d0d10;
+            border-color: rgba(255, 255, 255, 0.08);
+            color: #6b6860;
+        }
+
+        /* 导航栏 - 深色 */
         nav {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             z-index: 100;
-            background: rgba(245, 240, 232, 0.92);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border);
+            background: rgba(13, 13, 16, 0.85);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         .nav-container {
@@ -66,7 +160,7 @@
         .logo {
             font-size: 20px;
             font-weight: 700;
-            color: var(--text);
+            color: #f0ede5;
             text-decoration: none;
             letter-spacing: 1px;
         }
@@ -77,8 +171,8 @@
 
         .tagline {
             font-size: 12px;
-            color: var(--text-muted);
-            border-left: 1px solid var(--border);
+            color: #9a9891;
+            border-left: 1px solid rgba(255, 255, 255, 0.08);
             padding-left: 12px;
         }
 
@@ -89,14 +183,14 @@
         }
 
         .nav-links a {
-            color: var(--text-muted);
+            color: #9a9891;
             text-decoration: none;
             font-size: 14px;
             transition: color 0.25s;
         }
 
         .nav-links a:hover {
-            color: var(--text);
+            color: #f0ede5;
         }
 
         .nav-right {
@@ -107,7 +201,7 @@
 
         .lang-switch {
             font-size: 13px;
-            color: var(--text-muted);
+            color: #9a9891;
             cursor: pointer;
             display: flex;
             align-items: center;
@@ -116,9 +210,9 @@
 
         .btn-outline {
             padding: 8px 20px;
-            border: 1px solid var(--text);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 24px;
-            color: var(--text);
+            color: #f0ede5;
             background: transparent;
             font-size: 13px;
             cursor: pointer;
@@ -130,8 +224,8 @@
         }
 
         .btn-outline:hover {
-            background: var(--text);
-            color: var(--bg);
+            border-color: #c9a86c;
+            color: #c9a86c;
         }
 
         /* Hero 区域 */
@@ -140,6 +234,7 @@
             display: flex;
             align-items: center;
             padding: 120px 40px 80px;
+            background: #0d0d10;
         }
 
         .hero-container {
@@ -556,7 +651,7 @@
             display: none;
             background: none;
             border: none;
-            color: var(--text);
+            color: #f0ede5;
             font-size: 24px;
             cursor: pointer;
         }
@@ -707,7 +802,7 @@
         </div>
     </nav>
 
-    <section class="hero">
+    <section class="hero dark-section">
         <div class="hero-container">
             <div class="hero-left">
                 <div class="hero-breadcrumb">
@@ -832,7 +927,7 @@
         </div>
     </section>
 
-    <section id="services">
+    <section id="services" class="dark-section">
         <div class="section-container">
             <p class="section-label">Services</p>
             <h2 class="section-title">我能提供的服务</h2>
@@ -872,7 +967,7 @@
         </div>
     </section>
 
-    <section id="works" class="works">
+    <section id="works" class="works dark-section">
         <div class="section-container">
             <p class="section-label">Works</p>
             <h2 class="section-title">关键里程碑</h2>
@@ -924,7 +1019,7 @@
         </div>
     </section>
 
-    <section id="contact">
+    <section id="contact" class="dark-section">
         <div class="section-container">
             <div class="contact-grid">
                 <div>
@@ -965,7 +1060,7 @@
         </div>
     </section>
 
-    <footer>
+    <footer class="dark-section">
         <p>&copy; 2026 何艳梅 COCO · 追光人. Powered by <a href="https://pages.github.com">GitHub Pages</a></p>
     </footer>
 
