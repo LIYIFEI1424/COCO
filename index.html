@@ -590,6 +590,16 @@
             justify-content: center;
             color: var(--text-muted);
             font-size: 14px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .work-cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
         }
 
         .work-info {
@@ -1071,7 +1081,9 @@
                     </div>
                 </div>
                 <div class="work-card">
-                    <div class="work-cover">🛠</div>
+                    <div class="work-cover">
+                        <img src="images/kelon-team.jpg" alt="科龙电器团队合影" loading="lazy">
+                    </div>
                     <div class="work-info">
                         <h3 data-i18n="works.card2.title">科龙电器 · 客服中心副主任</h3>
                         <p data-i18n="works.card2.desc">2001-2005年，管理湖北省客服中心全面工作，统筹资产管理、配件发放、费用控制、网点服务审核及用户满意度管理。</p>
