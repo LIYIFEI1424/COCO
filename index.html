@@ -524,13 +524,24 @@
             background: var(--surface);
             border: 1px solid var(--border);
             border-radius: 12px;
-            padding: 32px;
+            overflow: hidden;
             transition: transform 0.25s, box-shadow 0.25s;
         }
 
         .service-card:hover {
             transform: translateY(-4px);
             box-shadow: 0 12px 40px rgba(0,0,0,0.06);
+        }
+
+        .service-image {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .service-card-content {
+            padding: 32px;
         }
 
         .service-icon {
@@ -1034,34 +1045,52 @@
             <p class="section-desc" data-i18n="services.desc">29年职场深耕，从家电渠道到照明品牌，从世界500强到自主创业，全链路品牌运营与渠道管理能力。</p>
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="service-icon">◆</div>
-                    <h3 data-i18n="services.card1.title">品牌运营</h3>
-                    <p data-i18n="services.card1.desc">LED照明品牌全链路操盘，从产品定位到市场策略。现任BOKE驱动品牌总监，联合行业协会推动品牌升级与行业影响力建设。</p>
+                    <img src="images/brand-operation.png" alt="品牌运营" class="service-image">
+                    <div class="service-card-content">
+                        <div class="service-icon">◆</div>
+                        <h3 data-i18n="services.card1.title">品牌运营</h3>
+                        <p data-i18n="services.card1.desc">LED照明品牌全链路操盘，从产品定位到市场策略。现任BOKE驱动品牌总监，联合行业协会推动品牌升级与行业影响力建设。</p>
+                    </div>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">✦</div>
-                    <h3 data-i18n="services.card2.title">渠道建设</h3>
-                    <p data-i18n="services.card2.desc">深耕珠三角OEM渠道，从海尔家电渠道到PHILIPS南中国区代理，拥有丰富的代理商管理与分销网络搭建经验。</p>
+                    <img src="images/channel-construction.png" alt="渠道建设" class="service-image">
+                    <div class="service-card-content">
+                        <div class="service-icon">✦</div>
+                        <h3 data-i18n="services.card2.title">渠道建设</h3>
+                        <p data-i18n="services.card2.desc">深耕珠三角OEM渠道，从海尔家电渠道到PHILIPS南中国区代理，拥有丰富的代理商管理与分销网络搭建经验。</p>
+                    </div>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">◉</div>
-                    <h3 data-i18n="services.card3.title">出口创汇</h3>
-                    <p data-i18n="services.card3.desc">主攻珠三角商照类出口灯具厂，主推欧标、美标LED模组与驱动产品，扶持头部企业实现LED出口创汇目标。</p>
+                    <img src="images/export-earnings.png" alt="出口创汇" class="service-image">
+                    <div class="service-card-content">
+                        <div class="service-icon">◉</div>
+                        <h3 data-i18n="services.card3.title">出口创汇</h3>
+                        <p data-i18n="services.card3.desc">主攻珠三角商照类出口灯具厂，主推欧标、美标LED模组与驱动产品，扶持头部企业实现LED出口创汇目标。</p>
+                    </div>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">◈</div>
-                    <h3 data-i18n="services.card4.title">团队搭建</h3>
-                    <p data-i18n="services.card4.desc">从一人销售到30多人团队，拥有门店、仓储及完整销售体系，擅长团队建设、利润分享与人才培养。</p>
+                    <img src="images/team-building.png" alt="团队搭建" class="service-image">
+                    <div class="service-card-content">
+                        <div class="service-icon">◈</div>
+                        <h3 data-i18n="services.card4.title">团队搭建</h3>
+                        <p data-i18n="services.card4.desc">从一人销售到30多人团队，拥有门店、仓储及完整销售体系，擅长团队建设、利润分享与人才培养。</p>
+                    </div>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">⬡</div>
-                    <h3 data-i18n="services.card5.title">供应链管理</h3>
-                    <p data-i18n="services.card5.desc">11年自主创业经验，精通LED驱动与COB产品供应链，熟悉物流储运、财务回款与ERP系统管理。</p>
+                    <img src="images/supply-chain.png" alt="供应链管理" class="service-image">
+                    <div class="service-card-content">
+                        <div class="service-icon">⬡</div>
+                        <h3 data-i18n="services.card5.title">供应链管理</h3>
+                        <p data-i18n="services.card5.desc">11年自主创业经验，精通LED驱动与COB产品供应链，熟悉物流储运、财务回款与ERP系统管理。</p>
+                    </div>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">◎</div>
-                    <h3 data-i18n="services.card6.title">市场推广</h3>
-                    <p data-i18n="services.card6.desc">从海尔广告策划到BOKE品牌升级，擅长新品推广、产品培训、行业活动策划与媒体传播。</p>
+                    <img src="images/market-promotion.png" alt="市场推广" class="service-image">
+                    <div class="service-card-content">
+                        <div class="service-icon">◎</div>
+                        <h3 data-i18n="services.card6.title">市场推广</h3>
+                        <p data-i18n="services.card6.desc">从海尔广告策划到BOKE品牌升级，擅长新品推广、产品培训、行业活动策划与媒体传播。</p>
+                    </div>
                 </div>
             </div>
         </div>
