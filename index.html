@@ -11,313 +11,804 @@
             box-sizing: border-box;
         }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: #f5f5f5;
+        :root {
+            --bg: #0d0d10;
+            --bg-soft: #141418;
+            --surface: #1a1a20;
+            --text: #f0ede5;
+            --text-muted: #9a9891;
+            --accent: #c9a86c;
+            --accent-dark: #a68855;
+            --border: rgba(255, 255, 255, 0.08);
         }
 
-        /* Nav */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, Inter, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
         nav {
             position: fixed;
             top: 0;
+            left: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
             z-index: 100;
+            background: rgba(13, 13, 16, 0.75);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
         }
 
-        nav .nav-container {
-            max-width: 900px;
+        .nav-container {
+            max-width: 1200px;
             margin: 0 auto;
+            padding: 0 32px;
+            height: 72px;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            padding: 0 24px;
-            height: 60px;
+            justify-content: space-between;
         }
 
-        nav .logo {
-            font-size: 20px;
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo {
+            font-size: 22px;
             font-weight: 700;
-            color: #1a1a1a;
+            color: var(--text);
             text-decoration: none;
             letter-spacing: 1px;
         }
 
-        nav .nav-links {
+        .logo-dot {
+            color: var(--accent);
+        }
+
+        .tagline {
+            font-size: 12px;
+            color: var(--text-muted);
+            border-left: 1px solid var(--border);
+            padding-left: 10px;
+        }
+
+        .nav-links {
             display: flex;
-            gap: 28px;
+            gap: 36px;
             list-style: none;
         }
 
-        nav .nav-links a {
+        .nav-links a {
+            color: var(--text-muted);
             text-decoration: none;
-            color: #555;
             font-size: 14px;
-            transition: color 0.2s;
+            transition: color 0.25s;
         }
 
-        nav .nav-links a:hover {
-            color: #1a1a1a;
+        .nav-links a:hover {
+            color: var(--text);
         }
 
-        /* Hero */
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .lang-switch {
+            font-size: 13px;
+            color: var(--text-muted);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .btn-outline {
+            padding: 9px 20px;
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            color: var(--text);
+            background: transparent;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.25s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
-            justify-content: center;
-            text-align: center;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: #fff;
-            padding: 80px 24px 40px;
+            padding: 120px 32px 80px;
+            background: radial-gradient(ellipse at 80% 20%, rgba(201, 168, 108, 0.08) 0%, transparent 40%),
+                        radial-gradient(ellipse at 20% 80%, rgba(255, 255, 255, 0.03) 0%, transparent 40%);
         }
 
-        .hero .avatar {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.2);
-            display: flex;
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 60px;
             align-items: center;
-            justify-content: center;
-            font-size: 48px;
-            font-weight: 700;
-            margin: 0 auto 24px;
-            border: 3px solid rgba(255, 255, 255, 0.4);
         }
 
-        .hero h1 {
-            font-size: 42px;
-            font-weight: 700;
-            margin-bottom: 12px;
+        .hero-left {
+            max-width: 620px;
         }
 
-        .hero .subtitle {
-            font-size: 18px;
-            opacity: 0.9;
-            margin-bottom: 32px;
+        .hero-name {
+            font-size: clamp(72px, 10vw, 140px);
+            font-weight: 800;
+            line-height: 1;
+            letter-spacing: -2px;
+            margin-bottom: 28px;
+            color: var(--text);
         }
 
-        .hero .social-links {
+        .hero-tags {
             display: flex;
-            gap: 16px;
-            justify-content: center;
+            gap: 10px;
+            margin-bottom: 28px;
             flex-wrap: wrap;
         }
 
-        .hero .social-links a {
-            display: inline-block;
-            padding: 10px 24px;
-            background: rgba(255, 255, 255, 0.15);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 8px;
-            color: #fff;
-            text-decoration: none;
-            font-size: 14px;
-            transition: background 0.2s;
+        .tag {
+            padding: 6px 16px;
+            border-radius: 4px;
+            font-size: 13px;
+            font-weight: 500;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            color: var(--text);
         }
 
-        .hero .social-links a:hover {
-            background: rgba(255, 255, 255, 0.3);
+        .tag-accent {
+            background: var(--accent);
+            color: var(--bg);
+            border-color: var(--accent);
         }
 
-        /* Sections */
-        section {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 80px 24px;
-        }
-
-        section h2 {
-            font-size: 28px;
+        .hero-headline {
+            font-size: clamp(28px, 4vw, 44px);
             font-weight: 700;
-            margin-bottom: 24px;
-            color: #1a1a1a;
+            line-height: 1.3;
+            margin-bottom: 18px;
         }
 
-        /* About */
-        .about-content {
-            background: #fff;
-            border-radius: 12px;
-            padding: 32px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+        .hero-headline .highlight {
+            background: var(--accent);
+            color: var(--bg);
+            padding: 0 10px;
+            border-radius: 4px;
         }
 
-        .about-content p {
+        .hero-desc {
+            font-size: 16px;
+            color: var(--text-muted);
+            max-width: 520px;
+            margin-bottom: 40px;
+        }
+
+        .experience-list {
+            border-top: 1px solid var(--border);
+        }
+
+        .exp-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 0;
+            border-bottom: 1px solid var(--border);
+            cursor: pointer;
+            transition: all 0.25s;
+        }
+
+        .exp-item:hover {
+            padding-left: 10px;
+        }
+
+        .exp-item:hover .exp-title {
+            color: var(--accent);
+        }
+
+        .exp-left {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .exp-num {
+            font-size: 12px;
+            color: var(--text-muted);
+            font-family: Courier New, monospace;
+            min-width: 28px;
+        }
+
+        .exp-title {
             font-size: 15px;
-            color: #555;
+            color: var(--text);
+            transition: color 0.25s;
+        }
+
+        .exp-arrow {
+            color: var(--text-muted);
+            font-size: 14px;
+            transition: transform 0.25s;
+        }
+
+        .exp-item:hover .exp-arrow {
+            transform: translateX(4px);
+            color: var(--accent);
+        }
+
+        .hero-right {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero-image {
+            width: 100%;
+            max-width: 480px;
+            border-radius: 12px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+            object-fit: cover;
+            aspect-ratio: 1 / 1;
+        }
+
+        .image-frame {
+            position: absolute;
+            inset: 20px -20px -20px 20px;
+            border: 1px solid var(--accent);
+            border-radius: 12px;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        section {
+            padding: 100px 32px;
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
             margin-bottom: 16px;
         }
 
-        /* Skills */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 16px;
+        .section-title {
+            font-size: clamp(28px, 4vw, 42px);
+            font-weight: 700;
+            margin-bottom: 24px;
         }
 
-        .skill-card {
-            background: #fff;
+        .section-desc {
+            font-size: 16px;
+            color: var(--text-muted);
+            max-width: 640px;
+        }
+
+        .about {
+            background: var(--bg-soft);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .about-text p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            font-size: 15px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .stat-item {
+            background: var(--surface);
+            border: 1px solid var(--border);
             border-radius: 12px;
             padding: 24px;
             text-align: center;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
-            transition: transform 0.2s;
         }
 
-        .skill-card:hover {
-            transform: translateY(-2px);
-        }
-
-        .skill-card .icon {
+        .stat-number {
             font-size: 32px;
-            margin-bottom: 12px;
+            font-weight: 700;
+            color: var(--accent);
+            display: block;
         }
 
-        .skill-card h3 {
-            font-size: 15px;
-            font-weight: 600;
-            margin-bottom: 6px;
-            color: #1a1a1a;
-        }
-
-        .skill-card p {
+        .stat-label {
             font-size: 13px;
-            color: #888;
+            color: var(--text-muted);
+            margin-top: 6px;
         }
 
-        /* Contact */
-        .contact-content {
-            background: #fff;
-            border-radius: 12px;
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 50px;
+        }
+
+        .service-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
             padding: 32px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+            transition: transform 0.25s, border-color 0.25s;
         }
 
-        .contact-item {
+        .service-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--accent);
+        }
+
+        .service-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: rgba(201, 168, 108, 0.12);
+            color: var(--accent);
             display: flex;
             align-items: center;
-            gap: 12px;
-            padding: 12px 0;
-            border-bottom: 1px solid #eee;
+            justify-content: center;
+            font-size: 20px;
+            margin-bottom: 20px;
         }
 
-        .contact-item:last-child {
-            border-bottom: none;
+        .service-card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
         }
 
-        .contact-item .label {
+        .service-card p {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .works {
+            background: var(--bg-soft);
+        }
+
+        .works-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-top: 50px;
+        }
+
+        .work-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: transform 0.25s;
+        }
+
+        .work-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .work-cover {
+            height: 200px;
+            background: linear-gradient(135deg, #1a1a20 0%, #2a2a35 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        .work-info {
+            padding: 24px;
+        }
+
+        .work-info h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .work-info p {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            margin-top: 32px;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 15px;
+            transition: color 0.25s;
+        }
+
+        .contact-link:hover {
+            color: var(--accent);
+        }
+
+        .contact-link .icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        .contact-form {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 12px 16px;
+            color: var(--text);
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.25s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--accent);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--bg);
+            border: none;
+            border-radius: 10px;
+            padding: 14px 28px;
+            font-size: 14px;
             font-weight: 600;
-            color: #1a1a1a;
-            min-width: 80px;
-            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.25s;
         }
 
-        .contact-item .value {
-            color: #555;
-            font-size: 14px;
+        .btn-primary:hover {
+            background: var(--accent-dark);
         }
 
-        /* Footer */
         footer {
+            border-top: 1px solid var(--border);
+            padding: 40px 32px;
             text-align: center;
-            padding: 32px 24px;
-            background: #1a1a1a;
-            color: #888;
+            color: var(--text-muted);
             font-size: 13px;
         }
 
         footer a {
-            color: #aaa;
+            color: var(--accent);
             text-decoration: none;
         }
 
-        /* Mobile */
-        @media (max-width: 600px) {
-            .hero h1 { font-size: 32px; }
-            nav .nav-links { gap: 16px; }
-            nav .nav-links a { font-size: 13px; }
-            section { padding: 60px 20px; }
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 900px) {
+            .nav-links {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-left {
+                max-width: 100%;
+            }
+
+            .hero-tags {
+                justify-content: center;
+            }
+
+            .hero-desc {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .experience-list {
+                text-align: left;
+                max-width: 500px;
+                margin: 0 auto;
+            }
+
+            .hero-image {
+                max-width: 360px;
+            }
+
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid,
+            .works-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
+
     <nav>
         <div class="nav-container">
-            <a href="#" class="logo">COCO</a>
+            <div class="nav-left">
+                <a href="#" class="logo">COCO<span class="logo-dot">.</span></a>
+                <span class="tagline">个人品牌创造者</span>
+            </div>
             <ul class="nav-links">
-                <li><a href="#about">关于我</a></li>
-                <li><a href="#skills">技能</a></li>
+                <li><a href="#about">关于</a></li>
+                <li><a href="#services">服务</a></li>
+                <li><a href="#works">作品</a></li>
+                <li><a href="#media">专栏</a></li>
                 <li><a href="#contact">联系</a></li>
             </ul>
+            <div class="nav-right">
+                <span class="lang-switch">简体中文 ▾</span>
+                <a href="#contact" class="btn-outline">合作入口 →</a>
+                <button class="menu-toggle">☰</button>
+            </div>
         </div>
     </nav>
 
-    <div class="hero">
-        <div>
-            <div class="avatar">C</div>
-            <h1>Hi, I'm COCO</h1>
-            <p class="subtitle">这里是我的个人主页</p>
-            <div class="social-links">
-                <a href="#about">了解更多</a>
-                <a href="#contact">联系我</a>
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-left">
+                <h1 class="hero-name">COCO</h1>
+                <div class="hero-tags">
+                    <span class="tag">COCO</span>
+                    <span class="tag tag-accent">创作者</span>
+                    <span class="tag">2025 起 · 广州</span>
+                </div>
+                <h2 class="hero-headline">
+                    专注打造有温度的<br><span class="highlight">个人品牌</span>
+                </h2>
+                <p class="hero-desc">
+                    你好，我是 COCO。这里是我的个人品牌主页，记录我的创作、服务与成长故事。后续我会持续完善内容，也欢迎通过合作入口与我联系。
+                </p>
+                <div class="experience-list">
+                    <div class="exp-item">
+                        <div class="exp-left">
+                            <span class="exp-num">/01</span>
+                            <span class="exp-title">个人品牌咨询与定位</span>
+                        </div>
+                        <span class="exp-arrow">↗</span>
+                    </div>
+                    <div class="exp-item">
+                        <div class="exp-left">
+                            <span class="exp-num">/02</span>
+                            <span class="exp-title">内容创作与视觉策划</span>
+                        </div>
+                        <span class="exp-arrow">↗</span>
+                    </div>
+                    <div class="exp-item">
+                        <div class="exp-left">
+                            <span class="exp-num">/03</span>
+                            <span class="exp-title">社群运营与知识分享</span>
+                        </div>
+                        <span class="exp-arrow">↗</span>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-
-    <section id="about">
-        <h2>关于我</h2>
-        <div class="about-content">
-            <p>你好，我是 COCO。欢迎来到我的个人网站！</p>
-            <p>这里是一个简短的自我介绍区域。你可以在这里写上你的背景、兴趣爱好、职业经历等内容。</p>
-            <p>这个网站托管在 GitHub Pages 上，完全免费。后续你可以用 CodeBuddy 来帮你修改和丰富这些内容。</p>
+            <div class="hero-right">
+                <div class="image-frame"></div>
+                <img src="images/coco-hero.png" alt="COCO" class="hero-image">
+            </div>
         </div>
     </section>
 
-    <section id="skills">
-        <h2>技能与兴趣</h2>
-        <div class="skills-grid">
-            <div class="skill-card">
-                <div class="icon">&#128187;</div>
-                <h3>编程</h3>
-                <p>Python / Web 开发</p>
+    <section id="about" class="about">
+        <div class="section-container">
+            <div class="about-grid">
+                <div>
+                    <p class="section-label">About</p>
+                    <h2 class="section-title">关于 COCO</h2>
+                </div>
+                <div class="about-text">
+                    <p>
+                        这里可以填写你的个人故事、职业背景和核心价值观。让读者快速了解你是谁，你做什么，以及你能为他们带来什么价值。
+                    </p>
+                    <p>
+                        这个网站已经按照深色商务风格搭建好整体框架，你只需要替换文字、图片和链接即可。后续内容可以逐步完善，完全满足你提到的后续再迭代的需求。
+                    </p>
+                    <div class="stats">
+                        <div class="stat-item">
+                            <span class="stat-number">5+</span>
+                            <span class="stat-label">年行业经验</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">100+</span>
+                            <span class="stat-label">服务案例</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">10k+</span>
+                            <span class="stat-label">关注者</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="skill-card">
-                <div class="icon">&#128242;</div>
-                <h3>设计</h3>
-                <p>UI / UX 设计</p>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="section-container">
+            <p class="section-label">Services</p>
+            <h2 class="section-title">我能提供的服务</h2>
+            <p class="section-desc">根据你的实际业务方向，后续可以替换为真实的服务模块与详细介绍。</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">◆</div>
+                    <h3>品牌定位</h3>
+                    <p>帮助个人或创作者梳理核心定位，打造差异化的品牌形象与记忆点。</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">✦</div>
+                    <h3>内容创作</h3>
+                    <p>撰写高质量图文、策划选题，持续输出有价值的内容资产。</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">◉</div>
+                    <h3>社群运营</h3>
+                    <p>构建高粘性社群，设计互动机制，把关注者转化为长期用户。</p>
+                </div>
             </div>
-            <div class="skill-card">
-                <div class="icon">&#127919;</div>
-                <h3>摄影</h3>
-                <p>记录生活瞬间</p>
-            </div>
-            <div class="skill-card">
-                <div class="icon">&#128218;</div>
-                <h3>学习</h3>
-                <p>持续探索新知识</p>
+        </div>
+    </section>
+
+    <section id="works" class="works">
+        <div class="section-container">
+            <p class="section-label">Works</p>
+            <h2 class="section-title">精选作品</h2>
+            <p class="section-desc">这里预留了作品展示区域，后续可以替换成真实项目、文章、视频或合作案例。</p>
+            <div class="works-grid">
+                <div class="work-card">
+                    <div class="work-cover">作品封面占位图</div>
+                    <div class="work-info">
+                        <h3>项目 / 文章标题一</h3>
+                        <p>简短描述这个作品的核心价值与亮点。</p>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <div class="work-cover">作品封面占位图</div>
+                    <div class="work-info">
+                        <h3>项目 / 文章标题二</h3>
+                        <p>简短描述这个作品的核心价值与亮点。</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <section id="contact">
-        <h2>联系我</h2>
-        <div class="contact-content">
-            <div class="contact-item">
-                <span class="label">Email</span>
-                <span class="value">your-email@example.com</span>
-            </div>
-            <div class="contact-item">
-                <span class="label">GitHub</span>
-                <span class="value"><a href="https://github.com/LIYIFEI1424" style="color:#667eea;text-decoration:none;">github.com/LIYIFEI1424</a></span>
-            </div>
-            <div class="contact-item">
-                <span class="label">微信</span>
-                <span class="value">扫码添加</span>
+        <div class="section-container">
+            <div class="contact-grid">
+                <div>
+                    <p class="section-label">Contact</p>
+                    <h2 class="section-title">与我联系</h2>
+                    <p class="section-desc">如果你有任何合作想法或问题，欢迎通过以下方式联系我。</p>
+                    <div class="contact-links">
+                        <a href="mailto:your-email@example.com" class="contact-link">
+                            <span class="icon">✉</span>
+                            <span>your-email@example.com</span>
+                        </a>
+                        <a href="https://github.com/LIYIFEI1424" target="_blank" class="contact-link">
+                            <span class="icon">GH</span>
+                            <span>github.com/LIYIFEI1424</span>
+                        </a>
+                        <a href="#" class="contact-link">
+                            <span class="icon">WX</span>
+                            <span>微信：扫码或搜索添加</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <div class="form-group">
+                        <label>姓名</label>
+                        <input type="text" placeholder="怎么称呼你">
+                    </div>
+                    <div class="form-group">
+                        <label>邮箱</label>
+                        <input type="email" placeholder="your@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label>留言</label>
+                        <textarea placeholder="简单描述你的需求..."></textarea>
+                    </div>
+                    <button class="btn-primary">发送消息</button>
+                </div>
             </div>
         </div>
     </section>
@@ -327,15 +818,10 @@
     </footer>
 
     <script>
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollInto({ behavior: 'smooth' });
-                }
-            });
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        menuToggle.addEventListener('click', () => {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
         });
     </script>
 </body>
