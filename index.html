@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COCO - 个人主页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+
+        /* Nav */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+            z-index: 100;
+        }
+
+        nav .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 24px;
+            height: 60px;
+        }
+
+        nav .logo {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1a1a1a;
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        nav .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+        nav .nav-links a {
+            text-decoration: none;
+            color: #555;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        nav .nav-links a:hover {
+            color: #1a1a1a;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            padding: 80px 24px 40px;
+        }
+
+        .hero .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            font-weight: 700;
+            margin: 0 auto 24px;
+            border: 3px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .hero .subtitle {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 32px;
+        }
+
+        .hero .social-links {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .hero .social-links a {
+            display: inline-block;
+            padding: 10px 24px;
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 14px;
+            transition: background 0.2s;
+        }
+
+        .hero .social-links a:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Sections */
+        section {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 80px 24px;
+        }
+
+        section h2 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: #1a1a1a;
+        }
+
+        /* About */
+        .about-content {
+            background: #fff;
+            border-radius: 12px;
+            padding: 32px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+        }
+
+        .about-content p {
+            font-size: 15px;
+            color: #555;
+            margin-bottom: 16px;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+        }
+
+        .skill-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+            transition: transform 0.2s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .skill-card .icon {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .skill-card h3 {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: #1a1a1a;
+        }
+
+        .skill-card p {
+            font-size: 13px;
+            color: #888;
+        }
+
+        /* Contact */
+        .contact-content {
+            background: #fff;
+            border-radius: 12px;
+            padding: 32px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .contact-item:last-child {
+            border-bottom: none;
+        }
+
+        .contact-item .label {
+            font-weight: 600;
+            color: #1a1a1a;
+            min-width: 80px;
+            font-size: 14px;
+        }
+
+        .contact-item .value {
+            color: #555;
+            font-size: 14px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 32px 24px;
+            background: #1a1a1a;
+            color: #888;
+            font-size: 13px;
+        }
+
+        footer a {
+            color: #aaa;
+            text-decoration: none;
+        }
+
+        /* Mobile */
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 32px; }
+            nav .nav-links { gap: 16px; }
+            nav .nav-links a { font-size: 13px; }
+            section { padding: 60px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">COCO</a>
+            <ul class="nav-links">
+                <li><a href="#about">关于我</a></li>
+                <li><a href="#skills">技能</a></li>
+                <li><a href="#contact">联系</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <div>
+            <div class="avatar">C</div>
+            <h1>Hi, I'm COCO</h1>
+            <p class="subtitle">这里是我的个人主页</p>
+            <div class="social-links">
+                <a href="#about">了解更多</a>
+                <a href="#contact">联系我</a>
+            </div>
+        </div>
+    </div>
+
+    <section id="about">
+        <h2>关于我</h2>
+        <div class="about-content">
+            <p>你好，我是 COCO。欢迎来到我的个人网站！</p>
+            <p>这里是一个简短的自我介绍区域。你可以在这里写上你的背景、兴趣爱好、职业经历等内容。</p>
+            <p>这个网站托管在 GitHub Pages 上，完全免费。后续你可以用 CodeBuddy 来帮你修改和丰富这些内容。</p>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>技能与兴趣</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <div class="icon">&#128187;</div>
+                <h3>编程</h3>
+                <p>Python / Web 开发</p>
+            </div>
+            <div class="skill-card">
+                <div class="icon">&#128242;</div>
+                <h3>设计</h3>
+                <p>UI / UX 设计</p>
+            </div>
+            <div class="skill-card">
+                <div class="icon">&#127919;</div>
+                <h3>摄影</h3>
+                <p>记录生活瞬间</p>
+            </div>
+            <div class="skill-card">
+                <div class="icon">&#128218;</div>
+                <h3>学习</h3>
+                <p>持续探索新知识</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>联系我</h2>
+        <div class="contact-content">
+            <div class="contact-item">
+                <span class="label">Email</span>
+                <span class="value">your-email@example.com</span>
+            </div>
+            <div class="contact-item">
+                <span class="label">GitHub</span>
+                <span class="value"><a href="https://github.com/LIYIFEI1424" style="color:#667eea;text-decoration:none;">github.com/LIYIFEI1424</a></span>
+            </div>
+            <div class="contact-item">
+                <span class="label">微信</span>
+                <span class="value">扫码添加</span>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 COCO. Powered by <a href="https://pages.github.com">GitHub Pages</a></p>
+    </footer>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollInto({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
