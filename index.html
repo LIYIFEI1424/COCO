@@ -271,13 +271,18 @@
             position: relative;
             width: 100%;
             max-width: 420px;
+            border-radius: 24px;
+            overflow: hidden;
         }
 
-        /* 抠图后的人像 - 透明背景 PNG */
+        /* 裁切照片：只显示白衬衫及以上部分，下方裁掉 */
         .hero-image {
             width: 100%;
             height: auto;
             display: block;
+            border-radius: 24px;
+            /* 向上偏移让底部多余部分被裁掉 */
+            margin-bottom: -35%;
             transition: transform 0.4s ease;
         }
 
@@ -705,7 +710,7 @@
             <div class="hero-right">
                 <div class="hero-glow-ring"></div>
                 <div class="hero-image-wrapper">
-                    <img src="images/coco-hero.png" alt="COCO" class="hero-image">
+                    <img src="images/coco个人网站图片.jpg" alt="COCO" class="hero-image">
                 </div>
             </div>
         </div>
