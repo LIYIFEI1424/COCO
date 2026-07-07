@@ -206,6 +206,92 @@
             display: flex;
             align-items: center;
             gap: 4px;
+            position: relative;
+            user-select: none;
+            padding: 6px 8px;
+            border-radius: 6px;
+            transition: color 0.25s, background 0.25s;
+        }
+
+        .lang-switch:hover {
+            color: #f0ede5;
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .lang-switch .arrow {
+            font-size: 10px;
+            transition: transform 0.25s;
+        }
+
+        .lang-switch.open .arrow {
+            transform: rotate(180deg);
+        }
+
+        .lang-dropdown {
+            position: absolute;
+            top: calc(100% + 12px);
+            right: 0;
+            min-width: 180px;
+            background: rgba(20, 20, 24, 0.96);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+            padding: 6px;
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-6px);
+            transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
+            z-index: 200;
+        }
+
+        .lang-switch.open .lang-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .lang-option {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 9px 12px;
+            border-radius: 6px;
+            font-size: 13px;
+            color: #c9c5be;
+            cursor: pointer;
+            transition: background 0.15s, color 0.15s;
+        }
+
+        .lang-option:hover {
+            background: rgba(201, 168, 108, 0.1);
+            color: #f0ede5;
+        }
+
+        .lang-option.active {
+            color: #c9a86c;
+            background: rgba(201, 168, 108, 0.08);
+        }
+
+        .lang-option .flag {
+            font-size: 16px;
+            line-height: 1;
+        }
+
+        .lang-option .name {
+            flex: 1;
+        }
+
+        .lang-option .code {
+            font-size: 11px;
+            color: #6b6860;
+            font-family: "Courier New", monospace;
+        }
+
+        .lang-option.active .code {
+            color: #c9a86c;
         }
 
         .btn-outline {
@@ -727,6 +813,13 @@
 
         /* 响应式 */
         @media (max-width: 900px) {
+            .nav-right {
+                gap: 12px;
+            }
+
+            .btn-outline {
+                display: none;
+            }
             .nav-links {
                 display: none;
             }
@@ -788,15 +881,71 @@
                 <span class="tagline">追光人</span>
             </div>
             <ul class="nav-links">
-                <li><a href="#about">关于</a></li>
-                <li><a href="#services">服务</a></li>
-                <li><a href="#works">作品</a></li>
-                <li><a href="#media">专栏</a></li>
-                <li><a href="#contact">联系</a></li>
+                <li><a href="#about" data-i18n="nav.about">关于</a></li>
+                <li><a href="#services" data-i18n="nav.services">服务</a></li>
+                <li><a href="#works" data-i18n="nav.works">作品</a></li>
+                <li><a href="#media" data-i18n="nav.media">专栏</a></li>
+                <li><a href="#contact" data-i18n="nav.contact">联系</a></li>
             </ul>
             <div class="nav-right">
-                <span class="lang-switch">简体中文 ▾</span>
-                <a href="#contact" class="btn-outline">合作入口 →</a>
+                <div class="lang-switch" id="langSwitch" data-lang="zh-CN">
+                    <span class="flag">🌐</span>
+                    <span class="lang-current">简体中文</span>
+                    <span class="arrow">▾</span>
+                    <div class="lang-dropdown" role="menu">
+                        <div class="lang-option active" data-lang="zh-CN" data-name="简体中文">
+                            <span class="flag">🇨🇳</span>
+                            <span class="name">简体中文</span>
+                            <span class="code">ZH</span>
+                        </div>
+                        <div class="lang-option" data-lang="zh-TW" data-name="繁體中文">
+                            <span class="flag">🇭🇰</span>
+                            <span class="name">繁體中文</span>
+                            <span class="code">ZH-TW</span>
+                        </div>
+                        <div class="lang-option" data-lang="en" data-name="English">
+                            <span class="flag">🇺🇸</span>
+                            <span class="name">English</span>
+                            <span class="code">EN</span>
+                        </div>
+                        <div class="lang-option" data-lang="ja" data-name="日本語">
+                            <span class="flag">🇯🇵</span>
+                            <span class="name">日本語</span>
+                            <span class="code">JA</span>
+                        </div>
+                        <div class="lang-option" data-lang="ko" data-name="한국어">
+                            <span class="flag">🇰🇷</span>
+                            <span class="name">한국어</span>
+                            <span class="code">KO</span>
+                        </div>
+                        <div class="lang-option" data-lang="fr" data-name="Français">
+                            <span class="flag">🇫🇷</span>
+                            <span class="name">Français</span>
+                            <span class="code">FR</span>
+                        </div>
+                        <div class="lang-option" data-lang="de" data-name="Deutsch">
+                            <span class="flag">🇩🇪</span>
+                            <span class="name">Deutsch</span>
+                            <span class="code">DE</span>
+                        </div>
+                        <div class="lang-option" data-lang="es" data-name="Español">
+                            <span class="flag">🇪🇸</span>
+                            <span class="name">Español</span>
+                            <span class="code">ES</span>
+                        </div>
+                        <div class="lang-option" data-lang="ru" data-name="Русский">
+                            <span class="flag">🇷🇺</span>
+                            <span class="name">Русский</span>
+                            <span class="code">RU</span>
+                        </div>
+                        <div class="lang-option" data-lang="ar" data-name="العربية">
+                            <span class="flag">🇸🇦</span>
+                            <span class="name">العربية</span>
+                            <span class="code">AR</span>
+                        </div>
+                    </div>
+                </div>
+                <a href="#contact" class="btn-outline" data-i18n="nav.cta">合作入口 →</a>
                 <button class="menu-toggle">☰</button>
             </div>
         </div>
@@ -1070,6 +1219,186 @@
         menuToggle.addEventListener('click', () => {
             navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
         });
+
+        // ============ 国际化（i18n）===========
+        // 支持 10 种主流语言：简体中文、繁體中文、English、日本語、한국어、Français、Deutsch、Español、Русский、العربية
+        const I18N = {
+            'zh-CN': {
+                dir: 'ltr',
+                'nav.about': '关于',
+                'nav.services': '服务',
+                'nav.works': '作品',
+                'nav.media': '专栏',
+                'nav.contact': '联系',
+                'nav.cta': '合作入口 →'
+            },
+            'zh-TW': {
+                dir: 'ltr',
+                'nav.about': '關於',
+                'nav.services': '服務',
+                'nav.works': '作品',
+                'nav.media': '專欄',
+                'nav.contact': '聯繫',
+                'nav.cta': '合作入口 →'
+            },
+            'en': {
+                dir: 'ltr',
+                'nav.about': 'About',
+                'nav.services': 'Services',
+                'nav.works': 'Works',
+                'nav.media': 'Media',
+                'nav.contact': 'Contact',
+                'nav.cta': 'Contact Me →'
+            },
+            'ja': {
+                dir: 'ltr',
+                'nav.about': 'プロフィール',
+                'nav.services': 'サービス',
+                'nav.works': '実績',
+                'nav.media': 'メディア',
+                'nav.contact': 'お問い合わせ',
+                'nav.cta': 'ご相談はこちら →'
+            },
+            'ko': {
+                dir: 'ltr',
+                'nav.about': '소개',
+                'nav.services': '서비스',
+                'nav.works': '작품',
+                'nav.media': '칼럼',
+                'nav.contact': '연락처',
+                'nav.cta': '문의하기 →'
+            },
+            'fr': {
+                dir: 'ltr',
+                'nav.about': 'À propos',
+                'nav.services': 'Services',
+                'nav.works': 'Réalisations',
+                'nav.media': 'Médias',
+                'nav.contact': 'Contact',
+                'nav.cta': 'Me contacter →'
+            },
+            'de': {
+                dir: 'ltr',
+                'nav.about': 'Über',
+                'nav.services': 'Leistungen',
+                'nav.works': 'Werke',
+                'nav.media': 'Medien',
+                'nav.contact': 'Kontakt',
+                'nav.cta': 'Kontakt aufnehmen →'
+            },
+            'es': {
+                dir: 'ltr',
+                'nav.about': 'Sobre mí',
+                'nav.services': 'Servicios',
+                'nav.works': 'Trabajos',
+                'nav.media': 'Medios',
+                'nav.contact': 'Contacto',
+                'nav.cta': 'Contáctame →'
+            },
+            'ru': {
+                dir: 'ltr',
+                'nav.about': 'Обо мне',
+                'nav.services': 'Услуги',
+                'nav.works': 'Работы',
+                'nav.media': 'Медиа',
+                'nav.contact': 'Контакты',
+                'nav.cta': 'Связаться →'
+            },
+            'ar': {
+                dir: 'rtl',
+                'nav.about': 'نبذة عني',
+                'nav.services': 'الخدمات',
+                'nav.works': 'الأعمال',
+                'nav.media': 'المقالات',
+                'nav.contact': 'اتصل',
+                'nav.cta': 'تواصل معي ←'
+            }
+        };
+
+        // ============ 语言切换逻辑 ============
+        const langSwitch = document.getElementById('langSwitch');
+        const langCurrent = langSwitch.querySelector('.lang-current');
+        const langOptions = langSwitch.querySelectorAll('.lang-option');
+
+        // 切换下拉菜单
+        function toggleLangDropdown(open) {
+            if (open === undefined) open = !langSwitch.classList.contains('open');
+            langSwitch.classList.toggle('open', open);
+        }
+
+        langSwitch.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleLangDropdown();
+        });
+
+        // 点击外部关闭
+        document.addEventListener('click', (e) => {
+            if (!langSwitch.contains(e.target)) {
+                toggleLangDropdown(false);
+            }
+        });
+
+        // Esc 关闭
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') toggleLangDropdown(false);
+        });
+
+        // 应用语言
+        function applyLang(lang) {
+            const dict = I18N[lang];
+            if (!dict) return;
+
+            // 更新所有 i18n 元素
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (dict[key]) {
+                    el.textContent = dict[key];
+                }
+            });
+
+            // 更新当前显示的语言名
+            const active = langSwitch.querySelector(`.lang-option[data-lang="${lang}"]`);
+            if (active) {
+                langCurrent.textContent = active.getAttribute('data-name');
+            }
+
+            // 更新激活态
+            langOptions.forEach(opt => {
+                opt.classList.toggle('active', opt.getAttribute('data-lang') === lang);
+            });
+
+            // 更新 html lang / dir
+            document.documentElement.lang = lang;
+            document.documentElement.dir = dict.dir || 'ltr';
+            document.body.style.direction = dict.dir || 'ltr';
+
+            // 持久化
+            try { localStorage.setItem('coco-lang', lang); } catch (e) {}
+            langSwitch.setAttribute('data-lang', lang);
+        }
+
+        // 绑定选项点击
+        langOptions.forEach(opt => {
+            opt.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const lang = opt.getAttribute('data-lang');
+                applyLang(lang);
+                toggleLangDropdown(false);
+            });
+        });
+
+        // 初始化语言（优先使用本地存储，其次浏览器语言）
+        (function initLang() {
+            let saved = null;
+            try { saved = localStorage.getItem('coco-lang'); } catch (e) {}
+            if (saved && I18N[saved]) {
+                applyLang(saved);
+                return;
+            }
+            const browserLang = (navigator.language || 'zh-CN').toLowerCase();
+            const matched = Object.keys(I18N).find(k => browserLang.startsWith(k.split('-')[0]));
+            applyLang(matched || 'zh-CN');
+        })();
     </script>
 </body>
 </html>
