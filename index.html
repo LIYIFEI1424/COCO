@@ -205,7 +205,7 @@
             cursor: pointer;
             display: flex;
             align-items: center;
-            gap: 4px;
+            gap: 6px;
             position: relative;
             user-select: none;
             padding: 6px 8px;
@@ -218,20 +218,27 @@
             background: rgba(255, 255, 255, 0.04);
         }
 
+        .lang-switch .lang-current {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
         .lang-switch .arrow {
             font-size: 10px;
             transition: transform 0.25s;
+            color: #6b6860;
         }
 
         .lang-switch.open .arrow {
             transform: rotate(180deg);
+            color: #c9a86c;
         }
 
         .lang-dropdown {
             position: absolute;
             top: calc(100% + 12px);
             right: 0;
-            min-width: 180px;
+            min-width: 140px;
             background: rgba(20, 20, 24, 0.96);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
@@ -255,9 +262,7 @@
         .lang-option {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            gap: 12px;
-            padding: 9px 12px;
+            padding: 9px 14px;
             border-radius: 6px;
             font-size: 13px;
             color: #c9c5be;
@@ -273,25 +278,6 @@
         .lang-option.active {
             color: #c9a86c;
             background: rgba(201, 168, 108, 0.08);
-        }
-
-        .lang-option .flag {
-            font-size: 16px;
-            line-height: 1;
-        }
-
-        .lang-option .name {
-            flex: 1;
-        }
-
-        .lang-option .code {
-            font-size: 11px;
-            color: #6b6860;
-            font-family: "Courier New", monospace;
-        }
-
-        .lang-option.active .code {
-            color: #c9a86c;
         }
 
         .btn-outline {
@@ -889,19 +875,14 @@
             </ul>
             <div class="nav-right">
                 <div class="lang-switch" id="langSwitch" data-lang="zh-CN">
-                    <span class="flag">🌐</span>
                     <span class="lang-current">简体中文</span>
                     <span class="arrow">▾</span>
                     <div class="lang-dropdown" role="menu">
                         <div class="lang-option active" data-lang="zh-CN" data-name="简体中文">
-                            <span class="flag">🇨🇳</span>
                             <span class="name">简体中文</span>
-                            <span class="code">ZH</span>
                         </div>
                         <div class="lang-option" data-lang="en" data-name="English">
-                            <span class="flag">🇺🇸</span>
                             <span class="name">English</span>
-                            <span class="code">EN</span>
                         </div>
                     </div>
                 </div>
