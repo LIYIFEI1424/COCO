@@ -271,36 +271,23 @@
             position: relative;
             width: 100%;
             max-width: 420px;
+            border-radius: 24px;
+            overflow: hidden;
         }
 
-        /* 原照片 - 保持原始清晰度，仅加圆角 */
+        /* 裁切照片：只显示白衬衫及以上部分，下方裁掉 */
         .hero-image {
             width: 100%;
             height: auto;
             display: block;
             border-radius: 24px;
+            /* 向上偏移让底部多余部分被裁掉，值可按实际调整 */
+            margin-bottom: -35%;
             transition: transform 0.4s ease;
         }
 
         .hero-image:hover {
             transform: scale(1.02);
-        }
-
-        /* 底部渐隐 - 仅底部边缘做微弱的融入 */
-        .hero-fade {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 80px;
-            background: linear-gradient(to top,
-                var(--bg) 0%,
-                rgba(13, 13, 16, 0.4) 50%,
-                transparent 100%
-            );
-            pointer-events: none;
-            z-index: 2;
-            border-radius: 0 0 24px 24px;
         }
 
         /* 周围环境光晕 - 放在图片后面 */
@@ -724,7 +711,6 @@
                 <div class="hero-glow-ring"></div>
                 <div class="hero-image-wrapper">
                     <img src="images/coco个人网站图片.jpg" alt="COCO" class="hero-image">
-                    <div class="hero-fade"></div>
                 </div>
             </div>
         </div>
