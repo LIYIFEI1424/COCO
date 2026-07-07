@@ -271,22 +271,14 @@
             position: relative;
             width: 100%;
             max-width: 420px;
-            border-radius: 24px;
-            overflow: hidden;
         }
 
-        /* 抠图后的主体照片 - 圆角钝化 + 边框柔化 */
+        /* 原照片 - 保持原始清晰度，仅加圆角 */
         .hero-image {
             width: 100%;
             height: auto;
-            object-fit: cover;
-            object-position: top center;
+            display: block;
             border-radius: 24px;
-            /* 边缘柔化：通过多层 drop-shadow 实现柔和发光边 */
-            filter: drop-shadow(0 0 2px rgba(201, 168, 108, 0.1))
-                    drop-shadow(0 0 8px rgba(201, 168, 108, 0.08))
-                    drop-shadow(0 0 25px rgba(201, 168, 108, 0.06))
-                    drop-shadow(0 4px 30px rgba(0, 0, 0, 0.4));
             transition: transform 0.4s ease;
         }
 
@@ -294,16 +286,16 @@
             transform: scale(1.02);
         }
 
-        /* 底部渐隐 - 让照片底部融入深色背景 */
+        /* 底部渐隐 - 仅底部边缘做微弱的融入 */
         .hero-fade {
             position: absolute;
-            bottom: -1px;
+            bottom: 0;
             left: 0;
             right: 0;
-            height: 150px;
+            height: 80px;
             background: linear-gradient(to top,
-                var(--bg) 35%,
-                rgba(13, 13, 16, 0.6) 55%,
+                var(--bg) 0%,
+                rgba(13, 13, 16, 0.4) 50%,
                 transparent 100%
             );
             pointer-events: none;
@@ -311,21 +303,21 @@
             border-radius: 0 0 24px 24px;
         }
 
-        /* 周围环境光晕 - 金色调柔和发光 */
+        /* 周围环境光晕 - 放在图片后面 */
         .hero-glow-ring {
             position: absolute;
-            top: 8%;
+            top: 5%;
             left: 50%;
             transform: translateX(-50%);
-            width: 88%;
-            height: 84%;
-            border-radius: 28px;
+            width: 100%;
+            height: 90%;
+            border-radius: 30px;
             background: radial-gradient(ellipse at center,
-                rgba(201, 168, 108, 0.05) 0%,
-                rgba(255, 240, 200, 0.03) 30%,
+                rgba(201, 168, 108, 0.04) 0%,
+                rgba(255, 240, 200, 0.02) 30%,
                 transparent 70%
             );
-            filter: blur(28px);
+            filter: blur(24px);
             pointer-events: none;
             z-index: 0;
         }
@@ -731,7 +723,7 @@
             <div class="hero-right">
                 <div class="hero-glow-ring"></div>
                 <div class="hero-image-wrapper">
-                    <img src="images/coco-hero.png" alt="COCO" class="hero-image">
+                    <img src="images/coco个人网站图片.jpg" alt="COCO" class="hero-image">
                     <div class="hero-fade"></div>
                 </div>
             </div>
