@@ -267,22 +267,80 @@
             position: relative;
         }
 
+        .hero-image-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 460px;
+        }
+
         .hero-image {
             width: 100%;
-            max-width: 480px;
-            border-radius: 12px;
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+            border-radius: 16px;
             object-fit: cover;
-            aspect-ratio: 1 / 1;
+            aspect-ratio: 3/4;
+            /* 让照片与深色背景自然融合 */
+            mask-image: linear-gradient(
+                to bottom,
+                rgba(0,0,0,1) 75%,
+                rgba(0,0,0,0.6) 88%,
+                rgba(0,0,0,0) 100%
+            );
+            -webkit-mask-image: linear-gradient(
+                to bottom,
+                rgba(0,0,0,1) 75%,
+                rgba(0,0,0,0.6) 88%,
+                rgba(0,0,0,0) 100%
+            );
+            filter: contrast(1.02) brightness(0.98);
+            transition: transform 0.4s ease;
+        }
+
+        .hero-image:hover {
+            transform: scale(1.02);
+        }
+
+        /* 底部渐变光晕 - 融合到深色背景 */
+        .hero-glow {
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 120px;
+            background: radial-gradient(ellipse at center, 
+                rgba(201, 168, 108, 0.12) 0%, 
+                rgba(13, 13, 16, 0.8) 60%,
+                transparent 100%
+            );
+            border-radius: 50%;
+            filter: blur(20px);
+            pointer-events: none;
+        }
+
+        /* 侧面柔和光晕 */
+        .hero-side-glow {
+            position: absolute;
+            top: 15%;
+            right: -40px;
+            width: 150px;
+            height: 60%;
+            background: linear-gradient(to bottom, 
+                transparent,
+                rgba(201, 168, 108, 0.06),
+                rgba(255, 255, 255, 0.03),
+                transparent
+            );
+            filter: blur(24px);
+            pointer-events: none;
         }
 
         .image-frame {
             position: absolute;
-            inset: 20px -20px -20px 20px;
+            inset: 16px -16px -16px 16px;
             border: 1px solid var(--accent);
-            border-radius: 12px;
+            border-radius: 16px;
             z-index: -1;
-            opacity: 0.3;
+            opacity: 0.2;
         }
 
         section {
@@ -685,7 +743,11 @@
             </div>
             <div class="hero-right">
                 <div class="image-frame"></div>
-                <img src="images/coco-hero.png" alt="COCO" class="hero-image">
+                <div class="hero-side-glow"></div>
+                <div class="hero-image-wrapper">
+                    <img src="images/coco个人网站图片.jpg" alt="COCO" class="hero-image">
+                    <div class="hero-glow"></div>
+                </div>
             </div>
         </div>
     </section>
