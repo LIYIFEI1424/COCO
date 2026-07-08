@@ -609,6 +609,15 @@
             position: relative;
         }
 
+        .work-cover.boke-cover {
+            height: 240px;
+            background: #1a1a20;
+        }
+
+        .work-cover.boke-cover img {
+            object-position: top;
+        }
+
         .work-cover img {
             width: 100%;
             height: 100%;
@@ -631,6 +640,194 @@
             font-size: 14px;
             color: var(--text-muted);
             line-height: 1.7;
+        }
+
+        /* 联系区域 - 新设计 */
+        .contact-section {
+            background: #0d0d10;
+            color: #f0ede5;
+            padding: 120px 40px;
+        }
+
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 100px;
+            align-items: start;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-left .contact-headline {
+            font-size: clamp(48px, 6vw, 80px);
+            font-weight: 700;
+            line-height: 1.1;
+            color: #f0ede5;
+            margin-bottom: 24px;
+            letter-spacing: -2px;
+        }
+
+        .contact-left .contact-subhead {
+            font-size: 16px;
+            color: #9a9891;
+            line-height: 1.8;
+            margin-bottom: 48px;
+            max-width: 400px;
+        }
+
+        .contact-email-row {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .contact-email {
+            font-size: clamp(20px, 2.5vw, 32px);
+            font-weight: 600;
+            color: #c9a86c;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(201, 168, 108, 0.3);
+            padding-bottom: 8px;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .contact-email:hover {
+            border-color: #c9a86c;
+            color: #e0c48a;
+        }
+
+        .contact-email-arrow {
+            font-size: 24px;
+            transition: transform 0.3s;
+        }
+
+        .contact-email:hover .contact-email-arrow {
+            transform: translateX(6px);
+        }
+
+        .contact-hint {
+            font-size: 14px;
+            color: #6b6860;
+            font-style: italic;
+            margin-top: 16px;
+        }
+
+        .contact-response {
+            font-size: 13px;
+            color: #6b6860;
+            margin-top: 8px;
+        }
+
+        .contact-response::before {
+            content: "·";
+            margin-right: 6px;
+            color: #c9a86c;
+        }
+
+        .contact-right {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .contact-block {
+            position: relative;
+        }
+
+        .contact-block-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #6b6860;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .contact-block-label::before {
+            content: "";
+            display: inline-block;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: #c9a86c;
+        }
+
+        .contact-block-content {
+            font-size: 15px;
+            color: #c9c5be;
+            line-height: 1.8;
+        }
+
+        .contact-block-content a {
+            color: #c9c5be;
+            text-decoration: none;
+            transition: color 0.25s;
+        }
+
+        .contact-block-content a:hover {
+            color: #c9a86c;
+        }
+
+        .contact-categories {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .contact-category {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+        .contact-category-tag {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: #c9a86c;
+            min-width: 60px;
+            padding-top: 2px;
+        }
+
+        .contact-category-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 16px;
+        }
+
+        .contact-category-links a {
+            font-size: 14px;
+            color: #9a9891;
+            text-decoration: none;
+            transition: color 0.25s;
+        }
+
+        .contact-category-links a:hover {
+            color: #c9a86c;
+        }
+
+        .contact-category-note {
+            font-size: 13px;
+            color: #6b6860;
+            font-style: italic;
+            margin-top: 8px;
+        }
+
+        @media (max-width: 900px) {
+            .contact-layout {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+
+            .contact-section {
+                padding: 80px 24px;
+            }
         }
 
         /* 联系区域 */
@@ -1130,21 +1327,27 @@
                     </div>
                 </div>
                 <div class="work-card">
-                    <div class="work-cover">💡</div>
+                    <div class="work-cover">
+                        <img src="images/微信图片_20260708104457.jpg" alt="PHILIPS 团队合影" loading="lazy">
+                    </div>
                     <div class="work-info">
                         <h3 data-i18n="works.card3.title">PHILIPS OEM 千万单品纪录</h3>
                         <p data-i18n="works.card3.desc">2012年，单客户单品突破1000万年销售额，从传统陶瓷金卤灯到LED照明新纪元，扶持头部企业实现出口创汇。</p>
                     </div>
                 </div>
                 <div class="work-card">
-                    <div class="work-cover">🚀</div>
+                    <div class="work-cover">
+                        <img src="images/startup-team.jpg" alt="创业团队合影" loading="lazy">
+                    </div>
                     <div class="work-info">
                         <h3 data-i18n="works.card4.title">创业：从600万到1个亿</h3>
                         <p data-i18n="works.card4.desc">2013-2024年，PHILIPS南中国区OEM代理，团队从1人到30+人，拥有门店仓储及完整销售体系，90%客户为灯具工厂。</p>
                     </div>
                 </div>
                 <div class="work-card">
-                    <div class="work-cover">🏗</div>
+                    <div class="work-cover boke-cover">
+                        <img src="images/philips-team.jpg" alt="BOKE驱动品牌培训合影" loading="lazy">
+                    </div>
                     <div class="work-info">
                         <h3 data-i18n="works.card5.title">BOKE驱动 · 品牌升级</h3>
                         <p data-i18n="works.card5.desc">2024年至今，任BOKE驱动品牌总监，将市场部从策展升级为销售攻坚部门，联合行业协会打造品牌标签效应。</p>
@@ -1154,42 +1357,76 @@
         </div>
     </section>
 
-    <section id="contact" class="dark-section">
-        <div class="section-container">
-            <div class="contact-grid">
-                <div>
-                    <p class="section-label" data-i18n="contact.label">Contact</p>
-                    <h2 class="section-title" data-i18n="contact.title">与我联系</h2>
-                    <p class="section-desc" data-i18n="contact.desc">如果你有任何合作想法或问题，欢迎通过以下方式联系我。</p>
-                    <div class="contact-links">
-                        <a href="mailto:heyanmeifei@126.com" class="contact-link">
-                            <span class="icon">✉</span>
-                            <span>heyanmeifei@126.com</span>
-                        </a>
-                        <a href="tel:13823373837" class="contact-link">
-                            <span class="icon">📞</span>
-                            <span>138 2337 3837</span>
-                        </a>
-                        <a href="#" class="contact-link">
-                            <span class="icon">📍</span>
-                            <span data-i18n="contact.location">深圳</span>
-                        </a>
+    <section id="contact" class="contact-section">
+        <div class="contact-layout">
+            <div class="contact-left">
+                <h2 class="contact-headline" data-i18n="contact.headline">来信</h2>
+                <p class="contact-subhead" data-i18n="contact.subhead">品牌合作、渠道咨询、行业交流，请从这里联系。</p>
+                <a href="mailto:heyanmeifei@126.com" class="contact-email">
+                    heyanmeifei@126.com
+                    <span class="contact-email-arrow">→</span>
+                </a>
+                <p class="contact-hint" data-i18n="contact.hint">— 写得简短一点也没关系，直接说明来意就好。</p>
+                <p class="contact-response" data-i18n="contact.response">团队会在 48 小时内回复。</p>
+            </div>
+            <div class="contact-right">
+                <div class="contact-block">
+                    <div class="contact-block-label" data-i18n="contact.block1.label">联系</div>
+                    <div class="contact-block-content">
+                        <div data-i18n="contact.block1.phone">电话: 138-2337-3837</div>
+                        <div data-i18n="contact.block1.email">邮箱: heyanmeifei@126.com</div>
                     </div>
                 </div>
-                <div class="contact-form">
-                    <div class="form-group">
-                        <label data-i18n="contact.form.name">姓名</label>
-                        <input type="text" data-i18n-placeholder="contact.form.namePlaceholder" placeholder="怎么称呼你">
+                <div class="contact-block">
+                    <div class="contact-block-label" data-i18n="contact.block2.label">地址</div>
+                    <div class="contact-block-content" data-i18n="contact.block2.address">
+                        深圳市<br>
+                        BOKE驱动品牌总部
                     </div>
-                    <div class="form-group">
-                        <label data-i18n="contact.form.email">邮箱</label>
-                        <input type="email" data-i18n-placeholder="contact.form.emailPlaceholder" placeholder="your@email.com">
+                </div>
+                <div class="contact-block">
+                    <div class="contact-block-label" data-i18n="contact.block3.label">办公时间</div>
+                    <div class="contact-block-content" data-i18n="contact.block3.hours">
+                        周一 — 周五<br>
+                        09:00 — 18:00 GMT+8<br>
+                        团队会在 48 小时内回复
                     </div>
-                    <div class="form-group">
-                        <label data-i18n="contact.form.message">留言</label>
-                        <textarea data-i18n-placeholder="contact.form.messagePlaceholder" placeholder="简单描述你的需求..."></textarea>
+                </div>
+                <div class="contact-block">
+                    <div class="contact-block-label" data-i18n="contact.block4.label">合作方向</div>
+                    <div class="contact-categories">
+                        <div class="contact-category">
+                            <span class="contact-category-tag">BRAND</span>
+                            <div class="contact-category-links">
+                                <a href="#" data-i18n="contact.block4.brand1">品牌运营</a>
+                                <span style="color:#3a3a40;">·</span>
+                                <a href="#" data-i18n="contact.block4.brand2">渠道建设</a>
+                                <span style="color:#3a3a40;">·</span>
+                                <a href="#" data-i18n="contact.block4.brand3">市场推广</a>
+                            </div>
+                        </div>
+                        <div class="contact-category">
+                            <span class="contact-category-tag">LIGHTING</span>
+                            <div class="contact-category-links">
+                                <a href="#" data-i18n="contact.block4.light1">LED驱动</a>
+                                <span style="color:#3a3a40;">·</span>
+                                <a href="#" data-i18n="contact.block4.light2">COB产品</a>
+                                <span style="color:#3a3a40;">·</span>
+                                <a href="#" data-i18n="contact.block4.light3">出口创汇</a>
+                            </div>
+                        </div>
+                        <div class="contact-category">
+                            <span class="contact-category-tag">TEAM</span>
+                            <div class="contact-category-links">
+                                <a href="#" data-i18n="contact.block4.team1">团队搭建</a>
+                                <span style="color:#3a3a40;">·</span>
+                                <a href="#" data-i18n="contact.block4.team2">供应链</a>
+                                <span style="color:#3a3a40;">·</span>
+                                <a href="#" data-i18n="contact.block4.team3">行业交流</a>
+                            </div>
+                        </div>
                     </div>
-                    <button class="btn-primary" data-i18n="contact.form.submit">发送消息</button>
+                    <p class="contact-category-note" data-i18n="contact.block4.note">同一个邮箱，标题里标注一下来意即可。</p>
                 </div>
             </div>
         </div>
@@ -1273,17 +1510,28 @@
                 'works.card5.desc': '2024年至今，任BOKE驱动品牌总监，将市场部从策展升级为销售攻坚部门，联合行业协会打造品牌标签效应。',
                 'works.card6.title': '深汕电器 · 渠道总监',
                 'works.card6.desc': '2005-2011年，负责代理品牌进驻大卖场及传统渠道商超的合作谈判，销售团队建设，年季度营销方案拟定与执行。',
-                'contact.label': 'Contact',
-                'contact.title': '与我联系',
-                'contact.desc': '如果你有任何合作想法或问题，欢迎通过以下方式联系我。',
-                'contact.location': '深圳',
-                'contact.form.name': '姓名',
-                'contact.form.namePlaceholder': '怎么称呼你',
-                'contact.form.email': '邮箱',
-                'contact.form.emailPlaceholder': 'your@email.com',
-                'contact.form.message': '留言',
-                'contact.form.messagePlaceholder': '简单描述你的需求...',
-                'contact.form.submit': '发送消息',
+                'contact.headline': '来信',
+                'contact.subhead': '品牌合作、渠道咨询、行业交流，请从这里联系。',
+                'contact.hint': '— 写得简短一点也没关系，直接说明来意就好。',
+                'contact.response': '团队会在 48 小时内回复。',
+                'contact.block1.label': '联系',
+                'contact.block1.phone': '电话: 138-2337-3837',
+                'contact.block1.email': '邮箱: heyanmeifei@126.com',
+                'contact.block2.label': '地址',
+                'contact.block2.address': '深圳市<br>BOKE驱动品牌总部',
+                'contact.block3.label': '办公时间',
+                'contact.block3.hours': '周一 — 周五<br>09:00 — 18:00 GMT+8<br>团队会在 48 小时内回复',
+                'contact.block4.label': '合作方向',
+                'contact.block4.brand1': '品牌运营',
+                'contact.block4.brand2': '渠道建设',
+                'contact.block4.brand3': '市场推广',
+                'contact.block4.light1': 'LED驱动',
+                'contact.block4.light2': 'COB产品',
+                'contact.block4.light3': '出口创汇',
+                'contact.block4.team1': '团队搭建',
+                'contact.block4.team2': '供应链',
+                'contact.block4.team3': '行业交流',
+                'contact.block4.note': '同一个邮箱，标题里标注一下来意即可。',
                 'footer.copyright': '&copy; 2026 何艳梅 COCO · 追光人. Powered by <a href="https://pages.github.com">GitHub Pages</a>'
             },
             'en': {
@@ -1351,17 +1599,28 @@
                 'works.card5.desc': '2024–Present. Brand Director at BOKE Driver, transforming the marketing department from exhibition curation to a sales-driven unit, building a distinctive brand label through industry association partnerships.',
                 'works.card6.title': 'Shenshan Electric · Channel Director',
                 'works.card6.desc': '2005–2011. Responsible for placing agency brands into hypermarkets and traditional retail channels through partnership negotiations, sales team building, and annual/quarterly marketing plan development and execution.',
-                'contact.label': 'Contact',
-                'contact.title': 'Get in Touch',
-                'contact.desc': 'If you have any collaboration ideas or questions, feel free to reach out through the following channels.',
-                'contact.location': 'Shenzhen',
-                'contact.form.name': 'Name',
-                'contact.form.namePlaceholder': 'What should I call you?',
-                'contact.form.email': 'Email',
-                'contact.form.emailPlaceholder': 'your@email.com',
-                'contact.form.message': 'Message',
-                'contact.form.messagePlaceholder': 'Briefly describe your needs...',
-                'contact.form.submit': 'Send Message',
+                'contact.headline': 'Contact',
+                'contact.subhead': 'Brand collaboration, channel consulting, industry exchange — reach out here.',
+                'contact.hint': '— Keep it brief, just state your purpose.',
+                'contact.response': 'The team will reply within 48 hours.',
+                'contact.block1.label': 'Contact',
+                'contact.block1.phone': 'Tel: 138-2337-3837',
+                'contact.block1.email': 'Email: heyanmeifei@126.com',
+                'contact.block2.label': 'Address',
+                'contact.block2.address': 'Shenzhen<br>BOKE Driver Brand HQ',
+                'contact.block3.label': 'Office Hours',
+                'contact.block3.hours': 'Mon — Fri<br>09:00 — 18:00 GMT+8<br>Team replies within 48 hours',
+                'contact.block4.label': 'Collaboration',
+                'contact.block4.brand1': 'Brand Ops',
+                'contact.block4.brand2': 'Channel Dev',
+                'contact.block4.brand3': 'Marketing',
+                'contact.block4.light1': 'LED Driver',
+                'contact.block4.light2': 'COB Products',
+                'contact.block4.light3': 'Export Growth',
+                'contact.block4.team1': 'Team Building',
+                'contact.block4.team2': 'Supply Chain',
+                'contact.block4.team3': 'Industry Exchange',
+                'contact.block4.note': 'Use the same email, just mention your purpose in the subject.',
                 'footer.copyright': '&copy; 2026 He Yanmei COCO · Light Chaser. Powered by <a href="https://pages.github.com">GitHub Pages</a>'
             }
         };
